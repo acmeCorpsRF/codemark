@@ -1,0 +1,16 @@
+<div class="actions">
+    <div class="search-form">
+        <input class="search-form__input" [(ngModel)]="nameGroup" (click)="onFocus()">
+        <div class="search-form__message" *ngIf="isEmptyTagField">Заполните поле 'тег'</div>
+        <button class="search-form__button-load"
+                (click)="onLoad(nameGroup)"
+                [disabled]="isLoadedImage">
+            {{isLoadedImage? 'Загрузка...':'Загрузить'}}
+        </button>
+    </div>
+    <div class="actions__buttons">
+        <button class="actions__buttons-clear" (click)="onReset()">Очистить</button>
+        <button class="actions__buttons-group" (click)="onToggleGroup()">{{isGroup? 'Разгруппировать': 'Группировать'}}
+        </button>
+    </div>
+</div>

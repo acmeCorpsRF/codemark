@@ -1,0 +1,44 @@
+.images {
+
+  &__block {
+    padding-right: 60px;
+
+    &::after {
+      content: '';
+      display: block;
+      clear: left;
+    }
+  }
+
+  &__item {
+    float: left;
+    display: flex;
+    align-items: center;
+    width: 310px;
+    height: 310px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    padding: 5px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  &__group {
+    margin-bottom: 20px;
+    padding: 24px;
+    border: 1px solid grey;
+    border-radius: 5px;
+
+    &::after {
+      content: '';
+      display: block;
+      clear: left;
+    }
+
+    &-title {
+      display: block;
+      margin-bottom: 24px;
+    }
+  }
+}

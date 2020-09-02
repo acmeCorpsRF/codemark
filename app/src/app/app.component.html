@@ -1,0 +1,18 @@
+<div class="wrapper">
+    <app-search-form
+            (sendSearchName)="setSearchName($event)"
+            (resetStorage)="clearStorage()"
+            (toggleGroupState)="toggleGroup()"
+            (resetGroupState)="resetGroup()"
+            [isGroup]="isGroup"
+            [nameGroup]="nameGroup"
+            [isEmptyTagField]="isEmptyTagField"
+            [isLoadedImage]="isLoadedImage"
+    ></app-search-form>
+    <app-dashboard
+            [images]="images"
+            [groups]="groups"
+            (sendTagName)="setTagName($event)"
+            [isGroup]="isGroup"
+    ></app-dashboard>
+</div>

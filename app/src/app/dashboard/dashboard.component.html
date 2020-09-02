@@ -1,0 +1,21 @@
+<div class="images">
+    <div class="images__block">
+        <div class="images__list" *ngIf="isGroup; else noGroup">
+            <div class="images__group" *ngFor="let group of groups">
+                <span class="images__group-title">{{group}}</span>
+                <ng-template ngFor let-item [ngForOf]="images">
+                    <ng-template [ngIf]="group===item.group">
+                        <div class="images__item" (click)="onCheck(item.group)">
+                            <img src={{item.url}} alt={{item.url}}>
+                        </div>
+                    </ng-template>
+                </ng-template>
+            </div>
+        </div>
+        <ng-template #noGroup>
+            <div class="images__item" *ngFor="let item of images" (click)="onCheck(item.group)">
+                <img src={{item.url}} alt={{item.url}}>
+            </div>
+        </ng-template>
+    </div>
+</div>
