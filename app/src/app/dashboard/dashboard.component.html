@@ -1,6 +1,6 @@
 <div class="images">
     <div class="images__block">
-        <div class="images__list" *ngIf="isGroup; else noGroup">
+        <div class="images__list" *ngIf="isGrouped; else noGroup">
             <div class="images__group" *ngFor="let group of groups">
                 <span class="images__group-title">{{group}}</span>
                 <ng-template ngFor let-item [ngForOf]="images">

@@ -1,4 +1,5 @@
 import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import {Group} from '../app.component'
 
 @Component({
     selector: 'app-search-form',
@@ -6,12 +7,12 @@ import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
     styleUrls: ['./search-form.component.scss']
 })
 export class SearchFormComponent implements OnInit {
-    // nameGroup: string = '';
 
     @Input() nameGroup: string;
-    @Input() isGroup: boolean;
+    @Input() isGrouped: boolean;
     @Input() isEmptyTagField: boolean;
     @Input() isLoadedImage: boolean;
+    @Input() groups: Group;
     @Output() sendSearchName = new EventEmitter<object>();
     @Output() resetStorage = new EventEmitter<any>();
     @Output() toggleGroupState = new EventEmitter<any>();
@@ -22,6 +23,7 @@ export class SearchFormComponent implements OnInit {
 
     ngOnInit(): void {
     }
+
     onLoad(value: string) {
         if (value.length) {
             this.isLoadedImage = true;
@@ -57,7 +59,9 @@ export class SearchFormComponent implements OnInit {
     }
 
     onToggleGroup() {
-        this.toggleGroupState.emit();
+        if (this.groups.length) {
+            this.toggleGroupState.emit();
+        }
     }
 
     onFocus() {

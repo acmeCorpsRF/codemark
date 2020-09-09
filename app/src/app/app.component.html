@@ -4,15 +4,16 @@
             (resetStorage)="clearStorage()"
             (toggleGroupState)="toggleGroup()"
             (resetGroupState)="resetGroup()"
-            [isGroup]="isGroup"
+            [isGrouped]="isGrouped"
             [nameGroup]="nameGroup"
             [isEmptyTagField]="isEmptyTagField"
             [isLoadedImage]="isLoadedImage"
+            [groups]="groups"
     ></app-search-form>
     <app-dashboard
             [images]="images"
             [groups]="groups"
             (sendTagName)="setTagName($event)"
-            [isGroup]="isGroup"
+            [isGrouped]="isGrouped"
     ></app-dashboard>
 </div>

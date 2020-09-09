@@ -10,7 +10,7 @@ export class DashboardComponent implements OnInit {
 
     @Input() images: Image;
     @Input() groups: Group;
-    @Input() isGroup: boolean;
+    @Input() isGrouped: boolean;
     @Output() sendTagName = new EventEmitter<string>();
 
     constructor() {

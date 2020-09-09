@@ -11,8 +11,7 @@ interface Response {
     nameGroup: string
 }
 
-export type Group = string;
-
+export type Group = [];
 
 @Component({
     selector: 'app-root',
@@ -21,16 +20,18 @@ export type Group = string;
 })
 export class AppComponent {
 
-    public nameGroup: string= '';
+    public nameGroup: string = '';
     public images: Image[] = [];
     public groups: Group[] = [];
-    public isGroup: boolean = false;
+    public isGrouped: boolean = false;
     public isEmptyTagField: boolean = false;
     public isLoadedImage: boolean = false;
 
     setSearchName(response: Response) {
         this.images.push({url: response.data.image_original_url, group: response.nameGroup});
-        this.groups.push(response.nameGroup);
+        if (!this.groups.includes(response.nameGroup)) {
+            this.groups.push(response.nameGroup);
+        }
     }
 
     clearStorage() {
@@ -43,10 +44,10 @@ export class AppComponent {
     }
 
     toggleGroup() {
-        this.isGroup ? this.isGroup = false : this.isGroup = true;
+        this.isGrouped ? this.isGrouped = false : this.isGrouped = true;
     }
 
     resetGroup() {
-        this.isGroup = false;
+        this.isGrouped = false;
     }
 }
